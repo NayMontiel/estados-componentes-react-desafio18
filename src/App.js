@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Input from "./componets/Input";
+import Boton from "./componets/Boton";
+
+
 
 function App() {
+
+
+  const [enabled, setEnabled] = useState(false)
+  const [inputName, setinputName] = useState('');
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h2>Estado de los Componentes y Eventos</h2>
       </header>
+
+      <Input         
+      
+        valname={inputName}
+        setinputName={setinputName}
+        setEnabled={setEnabled}
+        valPassword={enabled}
+                
+      />
+
+      {enabled ? <Boton /> : null}
+      
+      <footer>
+        <h5>©Todos Los Derechos Reservados</h5>
+      </footer>
     </div>
   );
 }
